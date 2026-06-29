@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "15907138549",
+    "project_id": "codealpha-c4406",
+    "storage_bucket": "codealpha-c4406.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15907138549:android:41dcd2366a962c2b9f4ebc",
+        "android_client_info": {
+          "package_name": "com.example.codealpha_language_learning"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQcYHBM_Qy8kxs1bhFnyQhnAJQeb1Nssw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
