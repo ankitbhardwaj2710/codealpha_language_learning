@@ -2,67 +2,61 @@ import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
 
 class AuthProvider extends ChangeNotifier {
-  final AuthService _service = AuthService();
+  final AuthService _authService = AuthService();
 
   bool isLoading = false;
 
-  Future<void> login(
-      String email,
-      String password,
-      BuildContext context,
-      ) async {
-
+  Future<bool> login({
+    required String email,
+    required String password,
+  }) async {
     try {
       isLoading = true;
       notifyListeners();
 
-      await _service.login(
+      await _authService.login(
         email: email,
         password: password,
       );
 
-    } catch (e) {
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.toString())),
-      );
-
+      return true;
+    } catch (_) {
+      return false;
     } finally {
       isLoading = false;
       notifyListeners();
     }
   }
 
-  Future<void> signup(
-      String email,
-      String password,
-      BuildContext context,
-      ) async {
-
+  Future<bool> signup({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
     try {
       isLoading = true;
       notifyListeners();
 
-      await _service.signUp(
+      await _authService.signUp(
+        name: name,
         email: email,
         password: password,
       );
 
-    } catch (e) {
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.toString())),
-      );
-
+      return true;
+    } catch (_) {
+      return false;
     } finally {
-
       isLoading = false;
       notifyListeners();
-
     }
   }
 
   Future<void> logout() async {
-    await _service.logout();
+    await _authService.logout();
+  }
+
+  Future<void> resetPassword(String email) async {
+    await _authService.resetPassword(email);
   }
 }
